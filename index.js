@@ -167,6 +167,10 @@ app.post('/search', (req, res) => {
 	});
 });
 
+app.get('*', (req, res) => {
+	res.render('404')
+})
+
 // Start the server
 app.listen(port, () => {
 	console.log(`App listening on ${port}`);
