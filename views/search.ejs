@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-4 mb-4">User Search Results</h1>
+      <% if (rows.length > 0) { %>
+        <p>Found <%= rows.length %> result(s) for username '<%= username %>':</p>
+        <ul class="list-group">
+          <% rows.forEach(row => { %>
+            <li class="list-group-item">( <%= new Date(row.time*1000).toLocaleString() %> ) <%= username %>: <%= row.message %></li>
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p>No results found for username '<%= username %>'.</p>
+      <% } %>
+      <br>
+      <a href="/" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Go Back</a>
+    </div>
+  </body>
+</html>
